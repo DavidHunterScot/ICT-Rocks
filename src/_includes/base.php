@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>{% if title %}{{ title }} - {% endif %}ict.rocks</title>
+        <title><?php if( isset( $page_title ) && $page_title ) echo $page_title . " - "; ?>ict.rocks</title>
         
         <link rel="preconnect" href="https://w3css.staticly.ict.rocks">
         <link rel="preconnect" href="https://webfonts.staticly.ict.rocks">
@@ -30,7 +30,7 @@
 
         <section class="w3-padding-64 w3-metro-darken" style="min-height: 85vh;">
             <div class="w3-auto w3-padding">
-                {{ content | safe }}
+                <?php if( isset( $page_content ) && is_callable( $page_content ) ) $page_content(); ?>
             </div>
         </section>
 
